@@ -1,1 +1,1 @@
-from .temporary_token import TemporaryTokenMixin
+from .token import TokenGeneratorMixin, token_generator

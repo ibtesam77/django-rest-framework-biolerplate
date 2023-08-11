@@ -1,1 +1,1 @@
-from .user import CreateUserSerializer, ChangePasswordSerializer
+from .user import CreateUserSerializer, VerifyEmailSerializer, ChangePasswordSerializer

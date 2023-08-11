@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="color-scheme" content="light dark" />
     <meta name="supported-color-schemes" content="light dark" />
-    <title>Change Password</title>
+    <title>Email Verification</title>
     <style type="text/css" rel="stylesheet" media="all">
       /* Base ------------------------------ */
 
@@ -475,12 +475,12 @@
                   <tr>
                     <td class="content-cell">
                       <div>
-                        <h1>Hi {{ user.username }},</h1>
+                        <h1>Welcome {{ user.username }},</h1>
                         <p>
-                          You recently requested to reset your password for your
-                          account. Use the button below to reset it.
+                          We are glad to welcome you to become a part of our
+                          team. Use the button below to verify your email.
                           <strong
-                            >This password reset is only valid for the next 10
+                            >This link is only valid for the next 10
                             minutes</strong
                           >
                         </p>
@@ -508,7 +508,7 @@
                                       href="{{ page_url }}?uid={{ user.id }}&token={{ token }}"
                                       class="button button--green"
                                       target="_blank"
-                                      >Reset your password</a
+                                      >Verify you email</a
                                     >
                                   </td>
                                 </tr>

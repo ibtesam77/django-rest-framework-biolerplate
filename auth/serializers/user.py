@@ -16,10 +16,20 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return user
 
 
+class VerifyEmailSerializer(serializers.ModelSerializer):
+    uid = serializers.CharField(required=True)
+    token = serializers.CharField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('uid', 'token')
+
+
 class ChangePasswordSerializer(serializers.ModelSerializer):
+    uid = serializers.CharField(required=True)
     token = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
 
     class Meta:
         model = User
-        fields = ('token', 'password')
+        fields = ('uid', 'token', 'password')
