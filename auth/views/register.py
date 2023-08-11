@@ -32,9 +32,8 @@ class SimpleRegistrationView(TokenGeneratorMixin, APIView):
         # generate user token
         try:
             token = self.make_token(user=user)
-            print(token)
         except Exception:
-            user.instance.delete()
+            user.delete()
             return ErrorResponse(message='Something went wrong in generating user token')
 
         # send activation email
@@ -42,12 +41,13 @@ class SimpleRegistrationView(TokenGeneratorMixin, APIView):
             subject = 'Email Confirmation'
             template = 'register.html'
             context = {'user': user, 'token': token,
-                       'page_url': f"{settings.APP_UTILS['APP_URL']}/forgot-password"}
+                       'page_url': f"{settings.APP_UTILS['APP_URL']}/verify-email"}
             recipient_list = [user.email]
 
             send_mail(subject=subject, html_content=template,
                       key=context, recipient_list=recipient_list)
         except Exception as e:
+            user.delete()
             return ErrorResponse(exception=e)
 
         return SuccessResponse(message='Activation email has been sent successfully')
