@@ -37,7 +37,7 @@ SIMPLE_JWT = {
 }
 
 
-AUTH_USER_MODEL = 'customauth.User'
+AUTH_USER_MODEL = 'authentication.User'
 
 
 AUTH_PASSWORD_VALIDATORS = [

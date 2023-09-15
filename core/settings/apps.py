@@ -9,7 +9,7 @@ DJANGO_APPLICATIONS = [
 ]
 
 CUSTOM_APPLICATIONS = [
-    'auth',
+    'authentication',
 ]
 
 THIRD_PARTY_HIGH_PRIORITY_APPLICATIONS = [
